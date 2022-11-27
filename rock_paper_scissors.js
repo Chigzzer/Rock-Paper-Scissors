@@ -1,14 +1,17 @@
+// Getting the computer's random selection
 function getComputerChoice(){
     const selections = ['Rock', 'Paper', 'Scissors'];
     let cpuSelection = selections[Math.floor(Math.random() * 3)];
     return cpuSelection;
 }
 
+// Function to get the player's election
 function getPlayerChoice(){
     let playerSelection = prompt("Rock Paper or Scissors");
     return playerSelection.toUpperCase()    ;
 }
 
+// FUnction for one round of the game
 function playRound(playerSelection, computerSelection){
     let message;
     console.log(playerSelection);
@@ -57,6 +60,7 @@ function playRound(playerSelection, computerSelection){
     return message;
 }
 
+// Function that plays the game
 function game(){
     for (i = 0; i < 5; i++){
         const computerSelection = getComputerChoice();
