@@ -1,8 +1,10 @@
 
-    let playerScore = 0;
-    let computerScore = 0;
-    let draw = false;
-    let roundPlay = true;
+let playerScore = 0;
+let computerScore = 0;
+let draw = false;
+let roundPlay = true;
+
+const choices = document.querySelectorAll(".rpsSelection");
 
 // Getting the computer's random selection
 function getComputerChoice(){
@@ -32,6 +34,8 @@ function play(){
         drawText.classList.add('hidden');
         draw = false;
     }
+
+    choices.forEach(element => element.removeEventListener('click', play));
        
     const playerSelection = this.getAttribute('data-value');
     const computerSelection = getComputerChoice();
@@ -99,8 +103,6 @@ function partFive(){
 
 function gameRound(){
     console.log("Does this run");
-    const choices = document.querySelectorAll(".rpsSelection");
-
     const roundButton = document.querySelector('#roundButton');
     roundButton.classList.remove('show');
     roundButton.classList.add('hidden');
