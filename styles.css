@@ -1,30 +1,42 @@
+body{
+    background-color: grey;
+}
+
 .hidden {
     display: none;
     color: blue;
 }
 
-.show {
-    display: flex;
-}
-
 
 #game{
+    display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     border: 1px red solid;
     flex: 1;
-
+    height:95vh;
 }
 
 #rpsChoices {
-    display: flex;   
+    display: flex; 
+    border: 1px green solid; 
 }
 
 #scoreBoard{
     display: flex;
     flex-direction: column;
     gap: 24px;
+    border: 1px blue solid; 
+}
+
+#msg{
+    font-size: 40px;
+}
+
+#roundButton{
+    padding: 12px;
+    border-radius: 60%;
 }
 
 #points {
@@ -37,4 +49,5 @@
     flex-direction: column;
     gap: 24px;
 }
+
 
