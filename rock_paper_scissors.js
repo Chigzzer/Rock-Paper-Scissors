@@ -2,6 +2,7 @@
     let playerScore = 0;
     let computerScore = 0;
     let draw = false;
+    let roundPlay = true;
 
 // Getting the computer's random selection
 function getComputerChoice(){
@@ -11,7 +12,7 @@ function getComputerChoice(){
 }
 
 
-// FUnction for one round of the game
+// Function for one round of the game
 function playRound(playerSelection, computerSelection){
     // 0 if user lost, 1 if a draw and 2 if user won
     const array = [[1, 0, 2], [2, 1, 0], [0, 2, 1]]; 
@@ -21,22 +22,28 @@ function playRound(playerSelection, computerSelection){
 
 // Function that plays the game
 function play(){
+    roundPlay = false;
+    console.log(roundPlay);
 
     const drawText = document.querySelector("#draw");
-    console.log(draw);
+
     if (draw == true){
-        console.log("TEST");
         drawText.classList.remove('show');
         drawText.classList.add('hidden');
         draw = false;
-
     }
        
     const playerSelection = this.getAttribute('data-value');
     const computerSelection = getComputerChoice();
     const roundPlayed = playRound(playerSelection, computerSelection);
 
-    console.log(roundPlayed);
+    const roundButton = document.querySelector('#roundButton');
+    roundButton.classList.add('show');
+
+    roundButton.addEventListener('click', gameRound);
+
+
+    console.log(roundPlay);
 
     if (roundPlayed == 2) {
         playerScore += 1;
@@ -53,10 +60,6 @@ function play(){
 
 
 }
-
-
-
-
 
 function partTwo(){
     const textOld = document.querySelector("#text");
@@ -94,20 +97,36 @@ function partFive(){
     button.setAttribute('onclick', 'game()');
 }
 
+function gameRound(){
+    console.log("Does this run");
+    const choices = document.querySelectorAll(".rpsSelection");
+
+    const roundButton = document.querySelector('#roundButton');
+    roundButton.classList.remove('show');
+    roundButton.classList.add('hidden');
+    choices.forEach(element => element.addEventListener('click', play));
+}
+
 function game(){
     const story = document.querySelector("#story");
-    console.log(story);
     story.classList.add('hidden');
 
     const game = document.querySelector("#game");
     game.classList.add('show');
+
+    console.log("ROUND PLAY")
+    console.log(roundPlay);
+    gameRound(); 
     
-    const choices = document.querySelectorAll(".rpsSelection");
+}
+
+function start(){
     
-    choices.forEach(element => element.addEventListener('click', play));
+    button.addEventListener('click', partTwo, {once: true});
 }
 
 const button = document.querySelector('.nextPart');
-button.addEventListener('click', partTwo, {once: true});
+start();
+
 
 
