@@ -61,52 +61,12 @@ function playRound(playerSelection, computerSelection){
 }
 
 // Function that plays the game
-
-function partTwo(){
-    const textOld = document.querySelector("#text");
-    const textNew = document.querySelector("#text2");
-    textOld.classList.remove('show');
-    textOld.classList.add('hidden');
-    textNew.classList.add('show');
-    button.setAttribute('onclick', 'partThree()');
-}
-
-function partThree(){
-    const textOld = document.querySelector("#text2");
-    const textNew = document.querySelector("#text3");
-    textOld.classList.remove('show');
-    textOld.classList.add('hidden');
-    textNew.classList.add('show');
-    button.setAttribute('onclick', 'partFour()');
-}
-
-function partFour(){
-    const textOld = document.querySelector("#text3");
-    const textNew = document.querySelector("#text4");
-    textOld.classList.remove('show');
-    textOld.classList.add('hidden');
-    textNew.classList.add('show');
-    button.setAttribute('onclick', 'partFive()');
-}
-
-function partFive(){
-    const textOld = document.querySelector("#text4");
-    const textNew = document.querySelector("#text5");
-    textOld.classList.remove('show');
-    textOld.classList.add('hidden');
-    textNew.classList.add('show');
-    button.setAttribute('onclick', 'game()');
-}
-
 function game(){
-    const story = document.querySelector("#story");
-    story.classList.add('hidden');
-
-    const game = document.querySelector("#game");
-    story.classList.add('show');
+    for (i = 0; i < 5; i++){
+        const computerSelection = getComputerChoice();
+        const playerSelection = getPlayerChoice();
+        console.log(playRound(playerSelection, computerSelection));  
+    }
 }
 
-const button = document.querySelector('.nextPart');
-button.addEventListener('click', partTwo, {once: true});
-
-
+game();
