@@ -6,3 +6,7 @@
 .show {
     display: inline;
 }
+
+#scoreboard {
+    border: red 1px solid;
+}

@@ -1,66 +1,48 @@
+
+    let playerScore = 0;
+    let computerScore = 0;
+
 // Getting the computer's random selection
 function getComputerChoice(){
-    const selections = ['Rock', 'Paper', 'Scissors'];
-    let cpuSelection = selections[Math.floor(Math.random() * 3)];
+    // 0 if rock, 1 if paper and 2 if scissors
+    let cpuSelection = Math.floor((Math.random() * 3));
     return cpuSelection;
 }
 
-// Function to get the player's election
-function getPlayerChoice(){
-    let playerSelection = prompt("Rock Paper or Scissors");
-    return playerSelection.toUpperCase()    ;
-}
 
 // FUnction for one round of the game
 function playRound(playerSelection, computerSelection){
-    let message;
-    console.log(playerSelection);
-    if (computerSelection == "Rock"){
-        if (playerSelection == "ROCK"){
-            message = "Draw! You both chose Rock";
-        }
-        else if (playerSelection == "PAPER"){
-            message = "You Win! Paper beats Rock";
-        }
-        else if (playerSelection == "SCISSORS"){
-            message = "You Lose! Rock beats Scissors";
-        }
-        else {
-            message = "Your user selection was wrong, please select a correct choice";
-        }
-    }
-    else if (computerSelection == "Paper"){
-        if (playerSelection == "ROCK"){
-            message = "You Lose! Paper beats Rock";
-        }
-        else if (playerSelection == "PAPER"){
-            message = "Draw! You both chose Paper";
-        }
-        else if (playerSelection == "SCISSORS"){
-            message = "You Win! Scissors beats Paper";
-        }
-        else {
-            message = "Your user selection was wrong, please select a correct choice";
-        }
-    }
-    else{
-        if (playerSelection == "ROCK"){
-            message = "You Win! Rock beats Scissors.";
-        }
-        else if (playerSelection == "PAPER"){
-            message = "You Lose! Scissors beats Paper";
-        }
-        else if (playerSelection == "SCISSORS"){
-            message = "Draw! You both chose Scissors";
-        }
-        else {
-            message = "Your user selection was wrong, please select a correct choice";
-        }
-    }
-    return message;
+    // 0 if user lost, 1 if a draw and 2 if user won
+    const array = [[1, 0, 2], [2, 1, 0], [0, 2, 1]]; 
+    const roundPlayed = array[playerSelection][computerSelection];
+    return roundPlayed;
 }
 
 // Function that plays the game
+function play(){
+    
+
+    
+    const playerSelection = this.getAttribute('data-value');
+    const computerSelection = getComputerChoice();
+    const roundPlayed = playRound(playerSelection, computerSelection);
+
+
+    if (roundPlayed == 2) {
+        playerScore += 1;
+        document.querySelector("#playerScore").textContent = `${playerScore}`;
+    }
+    else if (roundPlayed == 0){
+        computerScore += 1;
+        document.querySelector("#computerScore").textContent = `${computerScore}`;
+    }
+
+
+}
+
+
+
+
 
 function partTwo(){
     const textOld = document.querySelector("#text");
@@ -100,10 +82,15 @@ function partFive(){
 
 function game(){
     const story = document.querySelector("#story");
+    console.log(story);
     story.classList.add('hidden');
 
     const game = document.querySelector("#game");
-    story.classList.add('show');
+    game.classList.add('show');
+
+    const choices = document.querySelectorAll(".rpsSelection");
+    
+    choices.forEach(element => element.addEventListener('click', play));
 }
 
 const button = document.querySelector('.nextPart');
