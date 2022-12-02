@@ -1,8 +1,8 @@
-
+const rps = ['Rock', 'Paper', 'Scissors'];
 let playerScore = 0;
 let computerScore = 0;
 let roundPlay = true;
-const rps = ['Rock', 'Paper', 'Scissors'];
+
 
 const choices = document.querySelectorAll(".rpsSelection");
 const msgText = document.querySelector("#msg");
@@ -10,6 +10,11 @@ const roundButton = document.querySelector('#roundButton');
 const story = document.querySelector("#story");
 const game = document.querySelector("#game");
 const finish = document.querySelector("#finish");
+const text = document.querySelector("#text");
+const text2 = document.querySelector("#text2");
+const text3 = document.querySelector("#text3");
+const text4 = document.querySelector("#text4");
+const text5 = document.querySelector("#text5");
 
 
 
@@ -59,7 +64,7 @@ function play(){
     }
     
     if (playerScore == 5 || computerScore == 5){
-        finishGame();
+        finishGame(playerScore, computerScore);
     }
     roundButton.classList.remove('hidden');
     roundButton.addEventListener('click', gameRound);
@@ -67,34 +72,26 @@ function play(){
 }
 
 function partTwo(){
-    const textOld = document.querySelector("#text");
-    const textNew = document.querySelector("#text2");
-    textOld.classList.add('hidden');
-    textNew.classList.remove('hidden');
+    text.classList.add('hidden');
+    text2.classList.remove('hidden');
     button.setAttribute('onclick', 'partThree()');
 }
 
 function partThree(){
-    const textOld = document.querySelector("#text2");
-    const textNew = document.querySelector("#text3");
-    textOld.classList.add('hidden');
-    textNew.classList.remove('hidden');;
+    text2.classList.add('hidden');
+    text3.classList.remove('hidden');
     button.setAttribute('onclick', 'partFour()');
 }
 
 function partFour(){
-    const textOld = document.querySelector("#text3");
-    const textNew = document.querySelector("#text4");
-    textOld.classList.add('hidden');
-    textNew.classList.remove('hidden');
+    text3.classList.add('hidden');
+    text4.classList.remove('hidden');
     button.setAttribute('onclick', 'partFive()');
 }
 
 function partFive(){
-    const textOld = document.querySelector("#text4");
-    const textNew = document.querySelector("#text5");
-    textOld.classList.add('hidden');
-    textNew.classList.remove('hidden');
+    text4.classList.add('hidden');
+    text5.classList.remove('hidden');
     button.setAttribute('onclick', 'gameRun()');
 }
 
@@ -108,6 +105,10 @@ function gameRound(){
 
 function gameRun(){
 
+    playerScore = 0;
+    computerScore = 0;
+    roundPlay = true;
+
     story.classList.add('hidden');
 
     game.classList.remove('hidden');
@@ -118,15 +119,44 @@ function gameRun(){
     
 }
 
+function reRun(){
+    finish.classList.add('hidden');
+    game.classList.remove('hidden');
+    playerScore = 0;
+    computerScore = 0;
+    roundPlay = true;
+    document.querySelector("#computerScore").textContent = `${computerScore}`;
+    document.querySelector("#playerScore").textContent = `${playerScore}`;
+
+
+    gameRound(); 
+}
+
 function start(){
-    
+    console.log(game.classList.values);
     button.addEventListener('click', partTwo, {once: true});
 }
 
 const button = document.querySelector('.nextPart');
 
-function finishGame(){
+function finishGame(playerScore, computerScore){
     game.classList.add('hidden');
+
+    if (playerScore == 5){
+        finish.textContent = "Congratulations you won; let's celebrate";
+    }
+    else if (computerScore == 5){
+        finish.textContent = "Unfortuntely you lost!";
+    }
+   
+    const playAgainTag = document.createElement('p');
+    const playAgainText = document.createTextNode("Click the button below to fight him again.");
+    const playAgainButton = document.createElement('button');
+    playAgainButton.innerText = "Play Again";
+    playAgainButton.addEventListener('click', reRun);
+    playAgainTag.appendChild(playAgainText);
+    finish.appendChild(playAgainTag);
+    finish.appendChild(playAgainButton);
     finish.classList.remove('hidden');
 }
 

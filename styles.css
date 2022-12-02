@@ -5,10 +5,14 @@ body{
 .hidden {
     display: none;
     color: blue;
+    
 }
 
+.gameSection.hidden{
+    display: none;
+}
 
-#game{
+.gameSection{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
