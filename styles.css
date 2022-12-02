@@ -4,9 +4,37 @@
 }
 
 .show {
-    display: inline;
+    display: flex;
 }
 
-#scoreboard {
-    border: red 1px solid;
+
+#game{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px red solid;
+    flex: 1;
+
 }
+
+#rpsChoices {
+    display: flex;   
+}
+
+#scoreBoard{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+#points {
+    display: flex;
+    gap: 32px;
+}
+
+.pointsSection{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+

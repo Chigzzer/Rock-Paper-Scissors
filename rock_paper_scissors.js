@@ -1,6 +1,7 @@
 
     let playerScore = 0;
     let computerScore = 0;
+    let draw = false;
 
 // Getting the computer's random selection
 function getComputerChoice(){
@@ -20,13 +21,22 @@ function playRound(playerSelection, computerSelection){
 
 // Function that plays the game
 function play(){
-    
 
-    
+    const drawText = document.querySelector("#draw");
+    console.log(draw);
+    if (draw == true){
+        console.log("TEST");
+        drawText.classList.remove('show');
+        drawText.classList.add('hidden');
+        draw = false;
+
+    }
+       
     const playerSelection = this.getAttribute('data-value');
     const computerSelection = getComputerChoice();
     const roundPlayed = playRound(playerSelection, computerSelection);
 
+    console.log(roundPlayed);
 
     if (roundPlayed == 2) {
         playerScore += 1;
@@ -35,6 +45,10 @@ function play(){
     else if (roundPlayed == 0){
         computerScore += 1;
         document.querySelector("#computerScore").textContent = `${computerScore}`;
+    }
+    else{
+        draw = true;
+        console.log(drawText.classList.add("show"));
     }
 
 
@@ -87,7 +101,7 @@ function game(){
 
     const game = document.querySelector("#game");
     game.classList.add('show');
-
+    
     const choices = document.querySelectorAll(".rpsSelection");
     
     choices.forEach(element => element.addEventListener('click', play));
