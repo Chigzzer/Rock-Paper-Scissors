@@ -1,12 +1,36 @@
+html{
+    height: 100vh;
+}
 body{
     background-color: grey;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
 }
 
 .hidden {
     display: none;
     color: blue;
-    
 }
+
+.story{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border:1px red solid;
+    height: 100%;
+}
+
+.story div{
+    align-self: center;
+}
+
+.story.hidden{
+    display: none;
+}
+
 
 .gameSection.hidden{
     display: none;
@@ -15,16 +39,38 @@ body{
 .gameSection{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    
     border: 1px red solid;
-    flex: 1;
-    height:95vh;
+    height: 100vh;
+    gap: 28px;
 }
 
 #rpsChoices {
     display: flex; 
-    border: 1px green solid; 
+    border: 1px green solid;
+    justify-content: center;
+    align-items: center;
+}
+
+.rpsSelection{
+    display: flex;
+
+}
+
+.rpsSelection img{
+    max-width: 100%;
+    height: auto;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    border: 1px pink solid;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+ 
 }
 
 #scoreBoard{
@@ -32,15 +78,26 @@ body{
     flex-direction: column;
     gap: 24px;
     border: 1px blue solid; 
+
+    align-items: center;
+    justify-content: center;
+   
+}
+
+#scoreBoardHeader{
+    font-weight: 900;
+    font-size: 24px;;
 }
 
 #msg{
-    font-size: 40px;
+    font-size: 18px;
 }
+
 
 #roundButton{
     padding: 12px;
-    border-radius: 60%;
+    border-radius: 80%;
+    font-size: 14px;
 }
 
 #points {
@@ -51,7 +108,10 @@ body{
 .pointsSection{
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 12px;
+    border: 0.5px black solid;
+    align-items: center;
+    justify-content: center;
 }
 
 

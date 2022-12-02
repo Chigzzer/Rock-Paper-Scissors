@@ -7,7 +7,7 @@
     <title>Rock Paper Scissors</title>
     <link href="styles.css" rel="stylesheet">
 <body>
-    <div id="story">
+    <div id="story" class="story">
         <div id="text">
             Oh No! The 5 Hand King is here! We need help urgently!   
         </div>
@@ -34,21 +34,24 @@
             <div id="paper" class="rpsSelection" data-value=1><img src="/images/paper.png" alt="paper"></div>
             <div id="scissors" class="rpsSelection" data-value=2><img src="/images/scissors.png" alt="scissors"></div>
         </div>
-        <div id="msg" class="hidden"></div>
-        <button id="roundButton">Next Round</button>
-        <div id="scoreBoard">
-            <div id="scoreBoardHeader">Scoreboard</div>
-            <div id="points">
-                <div class="pointsSection" id="playerPoints">
-                    <div class="pointsHeader">Player</div>
-                    <div id="playerScore">0</div>
-                </div>
-                <div class="pointsSection" id="computerPoints">
-                    <div class="pointsHeader">5 Hands King</div>
-                    <div id="computerScore">0</div>
+        <div class="wrapper">        
+            <div id="scoreBoard">
+                <div id="scoreBoardHeader">Scoreboard</div>
+                <div id="points">
+                    <div class="pointsSection" id="playerPoints">
+                        <div class="pointsHeader">Player</div>
+                        <div id="playerScore">0</div>
+                    </div>
+                    <div class="pointsSection" id="computerPoints">
+                        <div class="pointsHeader">5 Hands King</div>
+                        <div id="computerScore">0</div>
+                    </div>
                 </div>
             </div>
-            
+            <div class="wrapper">
+            <div id="msg" class="hidden"></div>
+            <div><button id="roundButton">Next Round</button></div>
+            </div>
         </div>
     </div>
 
