@@ -129,7 +129,7 @@ function reRun(){
     gameRound(); 
 }
 
-// FUnction to start the end section of game
+// Function to start the end section of game
 function finishGame(playerScore, computerScore){
     game.classList.add('hidden');
     if (playerScore == 5){
