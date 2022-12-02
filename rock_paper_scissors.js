@@ -5,7 +5,6 @@ let computerScore = 0;
 let roundPlay = true;
 
 // Set query selectors
-
 const button = document.querySelector('.nextPart');
 const choices = document.querySelectorAll(".rpsSelection");
 const msgText = document.querySelector("#msg");
@@ -19,10 +18,7 @@ const text3 = document.querySelector("#text3");
 const text4 = document.querySelector("#text4");
 const text5 = document.querySelector("#text5");
 
-function start(){
-    button.addEventListener('click', partTwo, {once: true});
-}
-
+// Functions that continue the story line at the start of the game.
 function partTwo(){
     text.classList.add('hidden');
     text2.classList.remove('hidden');
@@ -47,22 +43,15 @@ function partFive(){
     button.setAttribute('onclick', 'gameRun()');
 }
 
+// Start of the game 
 function gameRun(){
-
-    playerScore = 0;
-    computerScore = 0;
-    roundPlay = true;
-
+    // Hide the story section and switch on the game section
     story.classList.add('hidden');
-
     game.classList.remove('hidden');
-
-    console.log("ROUND PLAY")
-    console.log(roundPlay);
     gameRound(); 
-    
 }
 
+// Start one round of RPS
 function gameRound(){
     console.log("Does this run");
     msgText.classList.add('hidden');
@@ -70,23 +59,28 @@ function gameRound(){
     choices.forEach(element => element.addEventListener('click', play));
 }
 
+// Play a singular round
 function play(){
-    console.log(roundPlay);
+    // Remove the event listener to stop user keep clicking the RPS without clicking next round
     choices.forEach(element => element.removeEventListener('click', play));
     const playerSelection = this.getAttribute('data-value');
     const computerSelection = getComputerChoice();
     const roundPoints = playRound(playerSelection, computerSelection);
-       
-   points(roundPoints, playerSelection, computerSelection);
     
+    // Calculate the current player and computer points
+    points(roundPoints, playerSelection, computerSelection);
+    
+    // To check if the game needs to end. 
     if (playerScore == 5 || computerScore == 5){
         finishGame(playerScore, computerScore);
     }
+
+    // Show the button to go to the next round
     roundButton.classList.remove('hidden');
     roundButton.addEventListener('click', gameRound);
 }
 
-
+// Function to calculate points and update the html file
 function points(points, playerSelection, computerSelection){
     const playerSelectionEdit = rps[playerSelection];
     const computerSelectionEdit = rps[computerSelection];
@@ -124,41 +118,28 @@ function playRound(playerSelection, computerSelection){
     return roundPlayed;
 }
 
-// Function that plays the game
-
-
-
-
-
-
-
+// Function to rerun the game once you finish
 function reRun(){
     finish.classList.add('hidden');
     game.classList.remove('hidden');
     playerScore = 0;
     computerScore = 0;
-    roundPlay = true;
     document.querySelector("#computerScore").textContent = `${computerScore}`;
     document.querySelector("#playerScore").textContent = `${playerScore}`;
-
-
     gameRound(); 
 }
 
-
-
-
-
+// FUnction to start the end section of game
 function finishGame(playerScore, computerScore){
     game.classList.add('hidden');
-
     if (playerScore == 5){
         finish.textContent = "Congratulations you won; let's celebrate";
     }
     else if (computerScore == 5){
-        finish.textContent = "Unfortuntely you lost!";
+        finish.textContent = "Unfortunately you lost!";
     }
    
+    // Adding a do you want to play again section
     const playAgainTag = document.createElement('p');
     const playAgainText = document.createTextNode("Click the button below to fight him again.");
     const playAgainButton = document.createElement('button');
@@ -170,7 +151,7 @@ function finishGame(playerScore, computerScore){
     finish.classList.remove('hidden');
 }
 
-start();
-
+// Check if the first next button is clicked
+button.addEventListener('click', partTwo, {once: true});
 
 
