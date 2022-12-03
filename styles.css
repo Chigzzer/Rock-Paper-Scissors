@@ -18,7 +18,6 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border:1px red solid;
     height: 100%;
 }
 
@@ -44,6 +43,7 @@ body{
     height: 100vh;
     gap: 28px;
     align-items: center;
+    border: 1px red solid;
 }
 
 #rpsChoices {
@@ -139,13 +139,17 @@ body{
     font-size: 50px;
 }
 
-#finish{
+.finish{
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 font-size: 34px;
 height: 100%;
+}
+
+.finish.hidden{
+    display: none;
 }
 
 #finish p{
