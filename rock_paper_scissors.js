@@ -58,14 +58,14 @@ function gameRound(){
     msgText.textContent = "Which weapon of choice shall you pick?";
     roundButton.classList.add('hidden');
     choices.forEach(element => element.classList.remove('clicked'));
+    choices.forEach(element => element.classList.add('hvr'));
     choices.forEach(element => element.addEventListener('click', play));
 }
 
 // Play a singular round
 function play(){
-    // Remove the event listener to stop user keep clicking the RPS without clicking next round
-    
     this.classList.add('clicked');
+    // Remove the event listener to stop user keep clicking the RPS without clicking next round
     choices.forEach(element => element.removeEventListener('click', play));
     const playerSelection = this.getAttribute('data-value');
     const computerSelection = getComputerChoice();
@@ -81,6 +81,7 @@ function play(){
 
     // Show the button to go to the next round
     roundButton.classList.remove('hidden');
+    choices.forEach(element => element.classList.remove('hvr'));
     roundButton.addEventListener('click', gameRound);
 }
 

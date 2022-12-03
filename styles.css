@@ -58,15 +58,19 @@ body{
     flex-shrink: 1;
     max-width: 10%;
     height: auto;
+    opacity: 90%;
 }
 
-.rpsSelection:hover{
-    scale: 1.5;
+.hvr:hover{
+    scale: 2;
+    opacity: 100%;
+    
 }
 
 .clicked{
     scale: 1.5;
     z-index: -5;
+    opacity: 100%;
 }
 
 .wrapper{
@@ -76,8 +80,6 @@ body{
     align-items: center;
     justify-content: flex-start;
     gap: 12px;
-   
- 
 }
 
 #scoreBoard{
@@ -103,7 +105,8 @@ body{
 
 #roundButton{
     padding: 12px;
-    border-radius: 80%;
+    border-radius: 50%;
+    opacity: 50%;
     font-size: 14px;
 }
 
