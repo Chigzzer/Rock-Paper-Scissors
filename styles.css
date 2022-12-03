@@ -22,7 +22,6 @@ body{
     flex-direction: column;
     justify-content: center;
     height: 100%;
-    border: red solid 1px;
 }
 
 .story div{
