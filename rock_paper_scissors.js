@@ -56,7 +56,7 @@ function gameRound(){
     console.log("Does this run");
 
     msgText.textContent = "Which weapon of choice shall you pick?";
-    roundButton.classList.add('hidden');
+    roundButton.classList.add('buttonHide');
     choices.forEach(element => element.classList.remove('clicked'));
     choices.forEach(element => element.classList.add('hvr'));
     choices.forEach(element => element.addEventListener('click', play));
@@ -80,7 +80,7 @@ function play(){
     }
 
     // Show the button to go to the next round
-    roundButton.classList.remove('hidden');
+    roundButton.classList.remove('buttonHide');
     choices.forEach(element => element.classList.remove('hvr'));
     roundButton.addEventListener('click', gameRound);
 }

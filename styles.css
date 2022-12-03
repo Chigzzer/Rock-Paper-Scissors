@@ -1,12 +1,10 @@
 html{
-    height: 100vh;
+    height: 50%;
 }
 body{
     background-color: grey;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: white;
-
-    padding: 0;
+    color: w;
     height: 100vh;
 }
 
@@ -31,6 +29,12 @@ body{
     display: none;
 }
 
+.story button{
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+}
 
 .gameSection.hidden{
     display: none;
@@ -41,9 +45,7 @@ body{
     flex-direction: column;
     justify-content: center;
     height: 100vh;
-    gap: 28px;
     align-items: center;
-    border: 1px red solid;
 }
 
 #rpsChoices {
@@ -51,6 +53,7 @@ body{
     justify-content: center;
     align-items: center;
     gap: 32px;
+    margin: 45px;
 }
 
 .rpsSelection{
@@ -77,8 +80,9 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 12px;
+    margin-top: 60px;
 }
 
 #msg{
@@ -86,18 +90,24 @@ body{
     font-weight: 600;
 }
 
-
 #roundButton{
-    padding: 12px;
-    border-radius: 50%;
+    border-radius: 30%;
+    width: 100px;
+    height: 60px;
+    padding: 10px;
+    border: 2px black solid;
+    text-align: center;
     opacity: 50%;
     font-size: 14px;
+}
+
+.buttonHide{
+    visibility: hidden;
 }
 
 #scoreBoard{
     display: flex;
     flex-direction: column;
-    gap: 24px;
     align-items: center;
     justify-content: center; 
 }
@@ -110,12 +120,11 @@ body{
     text-shadow: 2px 2px black;
 }
 
-
 #points {
     display: flex;
     gap: 16px;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: center;
+    align-items: stretch;
     width: 100%;
     text-align: center;
 }
@@ -133,10 +142,13 @@ body{
     font-weight: 900;
     font-size: 20px;
     text-shadow: 2px 2px black;
+    height: 50%;
 }
 
 .score{
     font-size: 50px;
+    justify-self: flex-end;
+    text-shadow: 2px 1px black;
 }
 
 .finish{
@@ -163,4 +175,8 @@ height: 100%;
     height: 100px;
     font-size: 18px;
     font-variant-caps: all-petite-caps;
+}
+
+#footer{
+    text-align: right;
 }
