@@ -8,11 +8,7 @@ A game of Rock Paper Scissors all done in JavaScript. A UI has been developed wh
 * Fully understood how to insert variables into strings using ``
 * Got an understanding of querySelect
 * Understand how to change style on event of hover.
+* Understood the levels of priority between class and ID in css.
+Understood the different units (%, em, vh) 
 
-## To DO
-* CSS
-* Decorate the scoreboard properly.
-* Stop the images of rps from shifting upwards when the message is displayed (possibly done due to the addition of nodes via JavaScript)
-* Completion of end section of game.
-* Highlight the chosen image when hovered over and clicked. 
-* Animate the story
+
