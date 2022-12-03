@@ -137,13 +137,14 @@ function reRun(){
 // Function to start the end section of game
 function finishGame(playerScore, computerScore){
     game.classList.add('hidden');
+
     if (playerScore == 5){
         finish.textContent = "Congratulations you won; let's celebrate";
     }
     else if (computerScore == 5){
         finish.textContent = "Unfortunately you lost!";
     }
-   
+
     // Adding a do you want to play again section
     const playAgainTag = document.createElement('p');
     const playAgainText = document.createTextNode("Click the button below to fight him again.");
