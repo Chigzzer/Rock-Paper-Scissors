@@ -30,29 +30,29 @@
 
     <div id="game" class="gameSection hidden">
         <div id="rpsChoices">
-            <div id="rock" class="rpsSelection" data-value=0><img src="/images/rock.png" alt="rock"></div>
-            <div id="paper" class="rpsSelection" data-value=1><img src="/images/paper.png" alt="paper"></div>
-            <div id="scissors" class="rpsSelection" data-value=2><img src="/images/scissors.png" alt="scissors"></div>
+            <img id="rock" class="rpsSelection" data-value=0 src="/images/rock.png" alt="rock">
+            <img id="paper" class="rpsSelection" data-value=1 src="/images/paper.png" alt="paper">
+            <img id="scissors" class="rpsSelection" data-value=2 src="/images/scissors.png" alt="scissors">
         </div>
-        <div class="wrapper">        
-            <div id="scoreBoard">
-                <div id="scoreBoardHeader">Scoreboard</div>
-                <div id="points">
-                    <div class="pointsSection" id="playerPoints">
-                        <div class="pointsHeader">Player</div>
-                        <div id="playerScore">0</div>
-                    </div>
-                    <div class="pointsSection" id="computerPoints">
-                        <div class="pointsHeader">5 Hands King</div>
-                        <div id="computerScore">0</div>
-                    </div>
+
+        <div class="wrapper">
+            <div id="msg">Which weapon of choice shall you pick?</div>
+            <div><button id="roundButton">Next Round</button></div>
+        </div>
+     
+        <div id="scoreBoard">
+            <div id="scoreBoardHeader">Scoreboard</div>
+            <div id="points">
+                <div class="pointsSection" id="playerPoints">
+                    <div class="pointsHeader">Player</div>
+                    <div id="playerScore">0</div>
+                </div>
+                <div class="pointsSection" id="computerPoints">
+                    <div class="pointsHeader">5 Hands King</div>
+                    <div id="computerScore">0</div>
                 </div>
             </div>
-            <div class="wrapper">
-            <div id="msg" class="hidden"></div>
-            <div><button id="roundButton">Next Round</button></div>
-            </div>
-        </div>
+        </div>  
     </div>
 
     <div id="finish" class="hidden"></div>
